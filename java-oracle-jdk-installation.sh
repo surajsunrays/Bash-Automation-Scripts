@@ -14,10 +14,21 @@ echo "--------------------------------------------------------------------------
 url="https://download.oracle.com/otn-pub/java/jdk/8u201-b09/42970487e3af4f5aa5bca3f542482c60/jdk-8u201-linux-i586.tar.gz"
 sudo wget --no-cookies --no-check-certificate --header "Cookie: oraclelicense=accept-securebackup-cookie" ${url}
 
+# Create separate folder for installation
 sudo mkdir /opt/java
+
+# Moving file to the java folder
 sudo mv jdk-8u201-linux-i586.tar.gz /opt/java/
+
+# Checking out the directory for further operations.
 cd /opt/java/
+
+# Unpacking the tar file 
 sudo tar -zxvf jdk*
+
+# Removing the tar file which not anymore required
+sudo rm -rf *.tar.gz
+
 # Updating the alternatives
 sudo update-alternatives --install /usr/bin/java java /opt/java/jdk1.8.0_201/bin/java 100
 sudo update-alternatives --config java
